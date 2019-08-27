@@ -36,6 +36,9 @@ var keyboardHigher = ["d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b"
 
 function playNote(k) {
 
+    $(".user" + userIndex).css({
+        "color":"red"
+    })
 
     for (i = 0; i < keyboard.length; i++) {
 
@@ -87,9 +90,12 @@ function playNote(k) {
     }
 
 
+
 };
 
 function stopNote(k) {
+
+    setTimeout(function(){ $(".user" + userIndex).css({"color":"white"}); },100)
 
     for (i = 0; i < keyboard.length; i++) {
 
@@ -252,7 +258,7 @@ function search() {
             maxResults: 5,
             videoSyndicated: true,
             videoEmbeddable: true,
-            key: "AIzaSyCDHzzlaYYZ23WOUIkyFB4qVqcgoXu7T1s"
+            key: "AIzaSyDN-PLrk0-E5MqpChSnkZ6x2HebZssXKJg"
         }, function(data){
             console.log(data);
 
@@ -265,11 +271,13 @@ function search() {
                     description: item.snippet.description
                 }
                 
-                $("#results").append("<div class='tutorial hello" + count + "' val='" + vidInfo.videoID + "'><img src= " + vidInfo.thumb + " class='image'><p class='title'>" + vidInfo.videoTitle + "</p><p class='description'>" + vidInfo.description + "</p></div>");
+
+
+                $("#results").append("<div class='tutorial hello" + count + "' val='" + vidInfo.videoID + "'><img src= " + vidInfo.thumb + " class='image video-click hello" + count + "'><p class='title video-click hello" + count + "'>" + vidInfo.videoTitle + "</p><p class='description'>" + vidInfo.description + "</p></div>");
                 $(".hello"+count).data(vidInfo);
                 count++;
 
-                $(".tutorial").on("click", function(event){
+                $(".video-click").on("click", function(event){
                     console.log($(this).data());
                     var tutVid = $(this).data();
                     $(".video").html("<iframe class='tutorial_video' val='" + tutVid.videoID + "' width='800' height='500' src='https://www.youtube.com/embed/" + tutVid.videoID + "' frameborder = '0' allow='autoplay; encrypted media' allowfullscreen></iframe>");
@@ -279,49 +287,6 @@ function search() {
             
         }
     )
-
-    $.ajax({
-        type: "GET",
-        data: {
-            apikey:"dc323e0e3f23c8b4bab30839be7c790f",
-            q_track: songName,
-            q_artist: artist,
-            f_has_lyrics: 1,
-            format:"jsonp",
-            callback:"jsonp_callback"
-        },
-        url: "http://api.musixmatch.com/ws/1.1/track.search",
-        dataType: "jsonp",
-        jsonpCallback: 'jsonp_callback',
-        contentType: 'application/json',
-        success: function(data) {
-            var track = data.message.body.track_list[0].track;
-            console.log(track);
-            $(".album_art").html(
-                '<div class="card" style="width: 18rem;">' +
-                    '<div class="card-body">' +
-                        '<h5 class="card-title">Artist: ' + track.artist_name + '</h5>' +
-                        '<h6 class="card-subtitle mb-2 text-muted">Track: ' + track.track_name + '</h6>' +
-                        "<p class='card-text album_name'>Album: " + track.album_name + "</p>" +
-                        '<a href="' + track.track_share_url + '" target="_blank"><button class="btn btn-primary mb-2 search_btn">Lyrics</button></a>' +
-                    '</div>' +
-                '</div>'
-                // "<div class='song_info'>" + 
-                //     "<div class='artist_name'>" + track.artist_name + "</div>" + 
-                //     "<div class='album_name'>" + track.album_name + "</div>" +
-                //     '<a href="' + track.track_share_url + '" target="_blank"><button class="btn btn-primary mb-2 search_btn">Lyrics</button></a>' + 
-                // "</div>"
-            );
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            $(".album_art").empty();
-            console.log(jqXHR);
-            console.log(textStatus);
-            console.log(errorThrown);
-        }    
-      });
-
-      
 
 }
 
@@ -355,6 +320,9 @@ function joinRoom(database, roomId, username) {
         $(".off").removeClass("pushed");
 
         registerOnNoteReceived();
+        for (var i = 0; i < users.length; i++) {
+            $(".users").append(`<p class="user${i}"">User ${i}</p>`)
+        }
     });
 }
 
@@ -395,38 +363,7 @@ $("#joinRoomBtn").on("click", function (event) {
     joinRoom(database, roomId, name);
 });
 
-// $.get(
-//     "http://api.musixmatch.com/ws/1.1/track.search?apikey=dc323e0e3f23c8b4bab30839be7c790f", {
-//         q_track: "Let her go",
-//         q_artist: "passenger"
-//     }, function(data){
-//         console.log(data);
-//     }
-// );
 
-// $.ajax({
-//     type: "GET",
-//     data: {
-//         apikey:"dc323e0e3f23c8b4bab30839be7c790f",
-//         q_track:"let her go",
-//         q_artist:"passenger",
-//         f_has_lyrics: 1,
-//         format:"jsonp",
-//         callback:"jsonp_callback"
-//     },
-//     url: "http://api.musixmatch.com/ws/1.1/track.search",
-//     dataType: "jsonp",
-//     jsonpCallback: 'jsonp_callback',
-//     contentType: 'application/json',
-//     success: function(data) {
-//         console.log(data); 
-//     },
-//     error: function(jqXHR, textStatus, errorThrown) {
-//         console.log(jqXHR);
-//         console.log(textStatus);
-//         console.log(errorThrown);
-//     }    
-//   });
 
 
 
