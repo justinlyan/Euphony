@@ -213,11 +213,12 @@ $(".show_search").on("click", function(event){
     $(".search_area").empty();
 
     $(".search_area").html(
-        '<form class="form-inline">' + 
-            '<div class="form-group mb-2">' +
-                '<label for="staticEmail2" class="sr-only">Email</label>' +
-                '<input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Search for tutorials: ">' +
-            '</div>' + 
+        '<form class="form-inline youtube-search">' + 
+            // '<div class="form-group mb-2">' +
+            //     '<label for="staticEmail2" class="sr-only">Email</label>' +
+            //     '<input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Search for tutorials: ">' +
+            // '</div>' + 
+            '<p class="search-label">Search for tutorials: </p>' +
             '<div class="form-group mx-sm-3 mb-2">' +
                 '<label for="inputPassword2" class="sr-only"></label>' +
                 '<input class="form-control artist" id="inputPassword2" placeholder="Artist">' +
@@ -226,7 +227,7 @@ $(".show_search").on("click", function(event){
                 '<label for="inputPassword2" class="sr-only"></label>' +
                 '<input class="form-control songName" id="inputPassword2" placeholder="Track Name">' +
             '</div>' +
-            '<button type="submit" class="btn btn-primary mb-2 search_btn">Search</button>' +
+            '<a href="#results"><button type="submit" class="btn btn-primary mb-2 search_btn">Search</button></a>' +
         '<form>'
     );
 
@@ -246,6 +247,11 @@ function search() {
 
     var songName = $(".songName").val().trim();
     var artist = $(".artist").val().trim();
+
+    if (songName === "" && artist === "") {
+        return;
+    }
+
     var count = 0;
 
     console.log(artist === "");

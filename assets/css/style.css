@@ -171,6 +171,8 @@ label {
 
 #results{
     position: relative;
+    max-width: 80vw;
+    margin: 0 auto 0 auto;
 }
 
 .search_btn{
@@ -201,6 +203,18 @@ label {
     left: 20px;
     color: white;
     z-index: 10;
+}
+
+.youtube-search {
+    max-width: 750px;
+    margin: 50px auto 50px auto;
+    background-color: black;
+    padding: 20px;
+}
+
+.search-label {
+    color: white;
+    font-weight: bold;
 }
 
 
