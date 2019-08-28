@@ -95,7 +95,7 @@ function playNote(k) {
 
 function stopNote(k) {
 
-    setTimeout(function(){ $(".user" + userIndex).css({"color":"white"}); },100)
+    setTimeout(function(){ $(".user" + userIndex).css({"color":"black"}); },100)
 
     for (i = 0; i < keyboard.length; i++) {
 
@@ -214,10 +214,6 @@ $(".show_search").on("click", function(event){
 
     $(".search_area").html(
         '<form class="form-inline youtube-search">' + 
-            // '<div class="form-group mb-2">' +
-            //     '<label for="staticEmail2" class="sr-only">Email</label>' +
-            //     '<input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Search for tutorials: ">' +
-            // '</div>' + 
             '<p class="search-label">Search for tutorials: </p>' +
             '<div class="form-group mx-sm-3 mb-2">' +
                 '<label for="inputPassword2" class="sr-only"></label>' +

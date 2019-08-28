@@ -2,15 +2,15 @@
 
 body {
     text-align: left;
-    background-image: url("../images/studio-background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url(../images/music-notes-background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
 }
 
-label {
-    color: white;
-}
+
 
 .lead {
     text-align: center;
@@ -37,9 +37,13 @@ label {
 }
 
 .display-4 {
-
+    font-weight: bold;
     text-align: center;
     
+}
+
+h2 {
+    text-align: center;
 }
 
 .intro{
@@ -58,14 +62,15 @@ label {
     border-bottom: 2px;
     position: relative;
     display: table;
-    margin: auto;   
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
 }
 
 .key {
     border: solid 2px lightgrey;
     font-family: 'Courier New', Courier, monospace;
-    height: 15rem;
-    width: 3rem;
+    height: 18rem;
+    width: 4.5rem;
     position: relative;
     float: left;
 
@@ -88,10 +93,10 @@ label {
     background-color: black;
 
     z-index: 2;
-    height: 10rem;
-    width: 2rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
+    height: 12rem;
+    width: 3rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
 
 }
     
@@ -201,7 +206,6 @@ label {
     position: fixed;
     top: 150px;
     left: 20px;
-    color: white;
     z-index: 10;
 }
 
@@ -215,6 +219,15 @@ label {
 .search-label {
     color: white;
     font-weight: bold;
+}
+
+.show_search {
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.search_area {
+    text-align: center;
 }
 
 
