@@ -354,7 +354,9 @@ $("#createRoomBtn").on("click", function(event){
         let key = snap.key;
         console.log("Your room key is: " + key);
         joinRoom(database, key, name);
+        $(".room-key").text("Room Key: " + key);
     });
+    $("#exit-room").removeClass("hidden");
 });
 
 
@@ -363,8 +365,12 @@ $("#joinRoomBtn").on("click", function (event) {
     var name = $("#createNameInput").val();
     var roomId = $("#roomKey").val();
     joinRoom(database, roomId, name);
+    $("#exit-room").removeClass("hidden");
 });
 
+$("#exit-room").on("click", function() {
+    $("#exit-room").addClass("hidden");
+})
 
 
 

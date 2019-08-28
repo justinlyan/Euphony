@@ -1,5 +1,3 @@
-
-
 body {
     text-align: left;
     background: url(../images/music-notes-background.jpg) no-repeat center center fixed; 
@@ -7,33 +5,15 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
 }
-
-
 
 .lead {
     text-align: center;
     color: white;
 }
+
 .jumbotron {
     background-color: rgba(0, 0, 0, 0);
-}
-
-.sidenav {
-    background-color: rgba(0, 0, 0, 0);
-    position: absolute;
-    right: 166px;
-    width: 290px;
-    height: 256px;
-    text-align: center;
-    top: 144px;
-    padding-top: 90px;
-    color: white;
-    font-size: 265%;
-    font-family: 'Montserrat', sans-serif;
-    text-shadow: 2px 3px 4px black;
-
 }
 
 .display-4 {
@@ -58,7 +38,6 @@ h2 {
 
 .piano {
     border: solid 4px black;
-
     border-bottom: 2px;
     position: relative;
     display: table;
@@ -73,12 +52,10 @@ h2 {
     width: 4.5rem;
     position: relative;
     float: left;
-
-
 }
 
 .white {
-    color: gray;
+    color: black;
     background-color: white;
     z-index: 1;
 
@@ -89,9 +66,8 @@ h2 {
 }
 
 .black {
-    color: gray;
+    color: white;;
     background-color: black;
-
     z-index: 2;
     height: 12rem;
     width: 3rem;
@@ -110,20 +86,16 @@ h2 {
     position: relative;
     display: table;
     margin: auto;   
-
-
 }
 .octave {
     height: 3rem;
     width: 3rem;
-
 }
 .octave-selector{
     width: 8rem;
 }
 
 .filler{
-
     width: 19rem;
 }
 
@@ -230,6 +202,10 @@ h2 {
     text-align: center;
 }
 
+.room {
+    position: relative;
+    float: right;
+}
 
 @media (max-width: 700px) {
     .second-octave{
@@ -239,7 +215,4 @@ h2 {
     .fifth-octave{
         display: inline-block;
     }
-    
-     
-        
-    }
+}
