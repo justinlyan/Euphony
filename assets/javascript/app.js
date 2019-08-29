@@ -275,14 +275,19 @@ function search() {
                 
 
 
-                $("#results").append("<div class='tutorial hello" + count + "' val='" + vidInfo.videoID + "'><img src= " + vidInfo.thumb + " class='image video-click hello" + count + "'><p class='title video-click hello" + count + "'>" + vidInfo.videoTitle + "</p><p class='description'>" + vidInfo.description + "</p></div>");
+                $("#results").append(
+                    "<div class='tutorial hello" + count + "' val='" + vidInfo.videoID + "'>" + 
+                    "<a href='#video'><img src= " + vidInfo.thumb + " class='image video-click hello" + count + "'></a>" + 
+                    "<a href='#video'<p class='title video-click hello" + count + "'>" + vidInfo.videoTitle + "</p></a>" + 
+                    "<p class='description'>" + vidInfo.description + "</p></div>"
+                );
                 $(".hello"+count).data(vidInfo);
                 count++;
 
                 $(".video-click").on("click", function(event){
                     console.log($(this).data());
                     var tutVid = $(this).data();
-                    $(".video").html("<iframe class='tutorial_video' val='" + tutVid.videoID + "' width='800' height='500' src='https://www.youtube.com/embed/" + tutVid.videoID + "' frameborder = '0' allow='autoplay; encrypted media' allowfullscreen></iframe>");
+                    $("#video").html("<iframe class='tutorial_video' val='" + tutVid.videoID + "' width='800' height='500' src='https://www.youtube.com/embed/" + tutVid.videoID + "' frameborder = '0' allow='autoplay; encrypted media' allowfullscreen></iframe>");
                     
                 })
             });
