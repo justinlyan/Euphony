@@ -186,7 +186,6 @@ $(".octave-control").on("click", ".key", function () {
 })
 
 
-
 $(document).keydown(function (keypressed) {
 
     var k = keypressed.key;
@@ -238,6 +237,7 @@ $(".show_search").on("click", function(event){
 
 });
 
+
 function search() {
     $("#results").html("");
 
@@ -257,10 +257,10 @@ function search() {
             part: "snippet, id",
             q: artist + " " + songName + " piano tutorial",
             type: "video",
-            maxResults: 5,
+            maxResults: 10,
             videoSyndicated: true,
             videoEmbeddable: true,
-            key: "AIzaSyDN-PLrk0-E5MqpChSnkZ6x2HebZssXKJg"
+            key: "AIzaSyAbQmfYb0zorqkfIUhxf1j_jFyTH0L1PGo"
         }, function(data){
             console.log(data);
 
@@ -272,8 +272,6 @@ function search() {
                     thumb: item.snippet.thumbnails.high.url,
                     description: item.snippet.description
                 }
-                
-
 
                 $("#results").append(
                     "<div class='tutorial hello" + count + "' val='" + vidInfo.videoID + "'>" + 
